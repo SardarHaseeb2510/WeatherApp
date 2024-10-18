@@ -1,6 +1,5 @@
 const apiKey = "da552f3f1766b44c27f0e2cd3538693b";
 
-
 const weatherApiKey = "da552f3f1766b44c27f0e2cd3538693b";
 
 const geminiApiKey = "AIzaSyD2_XEr7jVJTylQZ3I9wsJ6HSpWXkcYA4A";

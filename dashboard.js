@@ -193,8 +193,8 @@ function createVerticalBarChart(labels, data) {
             datasets: [{
                 label: 'Temperature (°C)',
                 data: data,
-                backgroundColor: 'rgba(128, 128, 128, 0.5)', // Light gray for bars
-                borderColor: 'rgba(100, 100, 100, 1)', // Darker gray for borders
+                backgroundColor: 'rgba(59, 130, 246, 0.5)', // Light blue
+                borderColor: 'rgba(30, 64, 175, 1)', // Darker blue
                 borderWidth: 1
             }]
         },
@@ -210,7 +210,28 @@ function createVerticalBarChart(labels, data) {
             },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(59, 130, 246, 0.1)' // Very light blue grid
+                    },
+                    ticks: {
+                        color: 'rgba(147, 197, 253, 0.8)' // Light blue text
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(59, 130, 246, 0.1)' // Very light blue grid
+                    },
+                    ticks: {
+                        color: 'rgba(147, 197, 253, 0.8)' // Light blue text
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'rgba(147, 197, 253, 0.8)' // Light blue text
+                    }
                 }
             }
         }
@@ -229,18 +250,26 @@ function createDoughnutChart(conditions) {
             datasets: [{
                 data: conditionData,
                 backgroundColor: [
-                    'rgba(211, 211, 211, 0.5)', // Light Gray
-                    'rgba(169, 169, 169, 0.5)', // Dark Gray
-                    'rgba(128, 128, 128, 0.5)', // Gray
-                    'rgba(105, 105, 105, 0.5)', // Dim Gray
-                    'rgba(192, 192, 192, 0.5)', // Silver
-                ]
+                    'rgba(59, 130, 246, 0.7)',  // Blue-500
+                    'rgba(37, 99, 235, 0.7)',   // Blue-600
+                    'rgba(29, 78, 216, 0.7)',   // Blue-700
+                    'rgba(30, 64, 175, 0.7)',   // Blue-800
+                    'rgba(30, 58, 138, 0.7)',   // Blue-900
+                ],
+                borderColor: 'rgba(30, 58, 138, 0.3)' // Dark blue border
             }]
         },
         options: {
             animations: {
                 delay: {
                     delay: 500,
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'rgba(147, 197, 253, 0.8)' // Light blue text
+                    }
                 }
             }
         }
@@ -256,9 +285,14 @@ function createLineChart(labels, data) {
             datasets: [{
                 label: 'Temperature (°C)',
                 data: data,
-                fill: false,
-                borderColor: 'rgba(75, 75, 75, 1)', // Dark gray for line
-                tension: 0.4
+                fill: {
+                    target: 'origin',
+                    above: 'rgba(59, 130, 246, 0.1)' // Very light blue fill
+                },
+                borderColor: 'rgba(59, 130, 246, 1)', // Blue line
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(30, 64, 175, 1)', // Darker blue points
+                pointBorderColor: 'rgba(59, 130, 246, 1)', // Blue point border
             }]
         },
         options: {
@@ -270,7 +304,28 @@ function createLineChart(labels, data) {
             },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(59, 130, 246, 0.1)' // Very light blue grid
+                    },
+                    ticks: {
+                        color: 'rgba(147, 197, 253, 0.8)' // Light blue text
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(59, 130, 246, 0.1)' 
+                    },
+                    ticks: {
+                        color: 'rgba(147, 197, 253, 0.8)' 
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'rgba(147, 197, 253, 0.8)' // Light blue text
+                    }
                 }
             }
         }
