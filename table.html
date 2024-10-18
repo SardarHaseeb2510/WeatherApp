@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="flex">
+        <aside class=" w-64 bg-blue-900 text-white p-4 flex flex-col justify-between h-screen">
+            <div class="space-y-8">
+
+                <div class=""><img src="images/weater_Logo.png" alt=""></div>
+                <nav>
+                    <ul class="space-y-4">
+                        <li><a href='dashboard.html'
+                                class="rounded-md block py-2 px-4 bg-blue-800 hover:bg-blue-700 ">Dashboard</a>
+                        </li>
+                        <li><a href="table.html"
+                                class="rounded-md block py-2 px-4 bg-blue-800 hover:bg-blue-700 ">Tables</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col items-center">
+            <div class="mainContent">
+                <section class="text-center mb-8">
+                    <h1 class="text-4xl text-white font-bold mb-6">Weather Dashboard</h1>
+                    <div class="flex justify-center">
+                        <input type="text" id="cityInput" placeholder="Enter city name"
+                            class="p-3 w-80 rounded-l-lg focus:outline-none border-2 focus:ring-2 focus:ring-blue-600 mr-2" />
+                        <button id="get-weather-btn"
+                            class="bg-blue-600 text-white px-4 py-3 rounded-r-lg hover:bg-blue-700"
+                            onclick="getTablesData()">
+                            Get Weather
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="grid sm:grid-cols-2 justify-evenly w-full sm:ml-10">
+
+                <div class="flex  flex-col w-96">
+                    <div id="pagination" class="flex justify-between w-96 mt-4 mb-4">
+                    </div>
+
+                    <table id="tableForWeather" class="">
+                    </table>
+
+
+
+                    <div id="reqUsedFilters" class="hidden mr-10 flex flex-col justify-center items-center w-full text-sm">
+                        <h2 class="text-xl font-bold text-blue-700 mt-4">Frequently used Filters</h2>
+
+                        <div id="filters" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <button onclick="addFilters(1)"
+                                class="p-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline focus:ring-2 focus:ring-blue-300">
+                                Show temperatures in ascending order
+                            </button>
+                            <button onclick="addFilters(2)"
+                                class="p-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline focus:ring-2 focus:ring-blue-300">
+                                Show temperatures in descending order
+                            </button>
+                            <button onclick="addFilters(3)"
+                                class="p-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline focus:ring-2 focus:ring-blue-300">
+                                Filter out days without rain
+                            </button>
+                            <button onclick="addFilters(4)"
+                                class="p-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline focus:ring-2 focus:ring-blue-300">
+                                Show the day with the highest temperature
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div id="chatbot" class="p-6 w-96 bg-white shadow-lg rounded-lg">
+                    <div class="mb-4">
+                        <input type="text" id="searchForAi" class="w-full p-3 border-2 border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ask the chatbot...">
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <button class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all" onclick="handleQuery()">
+                            Ask
+                        </button>
+                    </div>
+                    <textarea id="textareaForAi" class="w-full border-2 border-blue-300 rounded-lg p-3 resize-none h-32 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400" readonly></textarea>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="tables.js"></script>
+</body>
+
+</html>
